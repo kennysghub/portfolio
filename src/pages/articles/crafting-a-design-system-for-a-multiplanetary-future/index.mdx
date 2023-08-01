@@ -1,0 +1,52 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import logoGrpseek from './grpseeklogo.png'
+
+export const meta = {
+  author: 'Kenny Nguyen',
+date: '2023-04-15',
+  title: 'Load Testing gRPC Services',
+  description:
+    'gRPC is an efficient and high-performance communication protocol that enables developers to build fast and reliable micro services. '
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={logoGrpseek} alt="" />
+gRPC is an efficient and high-performance communication protocol that enables developers to build fast and reliable micro-services. 
+
+
+The main idea of gRPC is defining a service and then framing the methods. These methods can be called remotely if the parameters and return types match the services defined in the `proto` file. This enables gRPC servers and clients to communicate in various ways. While JSON and other data formats can be utilized in gRPC, Protocol Buffers, are the default.
+
+## gRPSeek
+
+gRPSeek is an open-source tool for visualizing load testing and metrics for gRPC services in Node. It leverages worker threads to perform load testing tasks efficiently and provides comprehensive metrics visualization for better analysis and optimization of gRPC services.
+
+We created an NPM package that provides load testing for gRPC developers in Node.js. This package works under the hood by utilizing the worker thread module.
+
+Unlike child processes or clusters, worker threads can share memory by transferring `ArrayBuffer` instances or sharing the `SharedArrayBuffer` instances.
+
+The most important function in this npm package is `loadTest`. All you have to do is pass in three arguments:
+
+1. **filepath** — The relative filepath to the gRPC client making the calls.
+2. **vu** — Number of virtual users.
+3. **seconds** — Number of seconds these concurrent requests will run.
+const
+```C
+const loadTest = require('grpseek')
+const workerScriptPath = './greeter_client.js';
+loadTest(workerScriptPath, 200, 15)
+```
+In this example, 200 worker threads are running the greeter_client.js file, for the duration of 15 seconds.
+
+
+
+## Protocol Buffers
+
+Protocol Buffers (ProtoBuf) are a binary serialization format created by Google in 2008, offering a compact and efficient alternative to JSON and XML .proto files, or Protocol Buffer files, are the key to using Protocol Buffers. These files are used to define the structure of the data to be serialized or deserialized. They act as a contract or schema between services, ensuring consistent communication.
+
+## The Need for a Visualizer
+
+Understanding complex nested structures and repeated fields in .proto files can be challenging, especially for a developer who’s working with protocol buffers for the first time. gRPSeek aims to enhance the developer experience of working with Protocol Buffers and gRPC by offering an intuitive visualization tool, powered by D3.js to alleviate the challenges of working with complex, deeply nested .proto files. Our tool provides a clear view of the hierarchical structure of your .proto files in a tree-like graph. Just import your proto file, or multiple proto files, and see your schema come to life.
+
+
