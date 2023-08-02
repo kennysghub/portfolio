@@ -49,8 +49,8 @@ export default function Speaking() {
             <Appearance
               href="https://events.linuxfoundation.org/grpc-conf/"
               title="Load Testing gRPC Services in Node"
-              description="Developed gRPSeek, a developer tool to enhance data observability by load testing gRPC services in a Node environment and visualizing key metrics to build latency reduction strategies, as well as throughput optimization to increase reliability"
-              event="gRPC Conf 2023, September 2023"
+              description="Presenting gRPSeek, a load testing and observability tool for gRPC services, as a keynote speaker."
+              event="gRPC Conference at Google Campus in Sunnyvale, September 20, 2023"
               cta="(Upcoming)"
               target="_blank"
             />
@@ -71,10 +71,11 @@ export default function Speaking() {
           </SpeakingSection>
           <SpeakingSection title="Presentations">
             <Appearance
-              href="#"
+              href="https://drive.google.com/file/d/1C5M0Htuzht0qhXIEPXAjrYvTRbAUV4T5/view"
+              target="_blank"
               title="Microservices"
               description="A technical deep-dive into how system architecture evolved into microservices, what microservices look like today, and what the future of system design looks like."
-              event="Jeeny + Bractlet Sponsored Tech Talk,  NYC"
+              event="Jeeny + Bractlet Sponsored Tech Talk, NYC, April 14, 2023"
               cta="Watch video"
             />
             {/* <Appearance
