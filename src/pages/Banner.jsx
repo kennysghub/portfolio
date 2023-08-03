@@ -32,7 +32,9 @@ export default function Banner() {
           </p>
           <p className="text-sm text-gray-500">
             <a href="#" className="hover:underline">
-             SPEAKER September 2023
+             SPEAKER
+             <br/>
+             Google Campus
             </a>
           </p>
         </div>
@@ -68,11 +70,11 @@ export default function Banner() {
                         )}
                       >
                         {/* <StarIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
-                        <span>Sunyvale, California, United States</span>
+                        <span><strong>Location:</strong> Sunyvale, California, United States</span>
                       </a>
                     )}
                   </Menu.Item>
-                  {/* <Menu.Item>
+                  <Menu.Item>
                     {({ active }) => (
                       <a
                         href="#"
@@ -81,11 +83,11 @@ export default function Banner() {
                           'flex px-4 py-2 text-sm'
                         )}
                       >
-                        <CodeBracketIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                        <span>Embed</span>
+                        {/* <CodeBracketIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
+                        <span><strong>Time:</strong> 3:10pm - 3:30pm</span>
                       </a>
                     )}
-                  </Menu.Item> */}
+                  </Menu.Item>
                   {/* <Menu.Item>
                     {({ active }) => (
                       <a
