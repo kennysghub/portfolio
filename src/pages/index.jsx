@@ -25,6 +25,7 @@ import image5 from '@/images/photos/image-5.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
+import Banner from './Banner'
 
 function MailIcon(props) {
   return (
@@ -263,6 +264,7 @@ export default function Home({ articles }) {
           name="description"
           content="ken"
         />
+        
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
@@ -310,8 +312,10 @@ export default function Home({ articles }) {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
-            {/* <Resume /> */}
+            
+        <Banner/>
           </div>
+   
         </div>
       </Container>
     </>
@@ -330,4 +334,9 @@ export async function getStaticProps() {
         .map(({ component, ...meta }) => meta),
     },
   }
+}
+
+
+const BannerComponent = () => {
+
 }
