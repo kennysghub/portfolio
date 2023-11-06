@@ -1,0 +1,54 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import eniDiagram from './eni-diagram.png'
+export const meta = {
+  author: 'Kenny Nguyen',
+date: '2023-06-15',
+  title: 'Elastic Network Interfaces',
+  description:
+    'A logical networking component in a VPC that represents a virtual network card.'
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={eniDiagram} alt="ENI Diagram"/>
+
+
+**Elastic Network Interfaces** (**ENI**) can be understood as *virtual network cards* that act as the connectivity bridge between different AWS services and a Virtual Private Cloud (VPC). Think of an ENI as a detachable "plug" that you can insert into various AWS services, providing those services with a network identity within your VPC.
+
+## **How ENIs Work Intuitively**
+
+1. **Logical Connector**: Imagine a room (your VPC) with multiple electrical outlets (subnets). An ENI is like an electrical plug that you can insert into any of these outlets. Whatever device you connect this plug to will have access to the electrical power (network resources) in that room.
+2. **Multi-Faceted**: Each ENI can have attributes like private IP addresses, public IP addresses, security groups, and even a MAC address. It's like having a plug with multiple prongs, each prong capable of providing a specific type of connectivity.
+3. **Mobility**: You can unplug this ENI from one device (e.g., EC2 instance) and plug it into another (e.g., Lambda function), transferring its network settings and permissions seamlessly. This is analogous to moving an electrical plug from one appliance to another, giving the new appliance access to the same power source.
+
+## **ENIs in the Context of Lambda and VPC**
+
+1. **Automated Provisioning**: When you associate a Lambda function with a VPC, AWS automatically creates one or more ENIs for that function. This is like automatically inserting a plug into the wall outlet when you bring a new device into the room.
+2. **Security Group Rules**: The security groups you assign to the Lambda function actually get attached to its ENIs. This sets up firewall rules for the function's network interactions within the VPC.
+3. **Resource Access**: With the ENI plugged in, the Lambda function can now freely interact with other resources in the same VPC, like databases or other EC2 instances, adhering to the permissions defined in the attached security groups.
+4. **Isolation**: Since each ENI is associated with a specific subnet in a VPC, you can have very fine-grained control over the network topology. This can isolate the Lambda function to a specific segment of your network for better security and compliance.
+
+So, in a nutshell, ENIs serve as the adaptable and mobile network "plugs" that allow AWS services like Lambda to securely and effectively interact with a VPC's resources.
+## **Considerations**
+
+### **Cost Implications**
+While ENIs themselves are free, associated resources like EIPs may incur charges. For instance, AWS charges for each EIP that is allocated and not associated with a running instance.
+Data transfer costs are also associated with the use of ENIs, as they enable the flow of data within and between subnets and the internet.
+
+### **Service Limits**
+
+AWS has limits on the number of ENIs that can be attached to an instance, and the number of IPs that can be attached to an ENI. These limits are based on the instance type and size.
+It’s possible to request a limit increase, but this needs to be done proactively to avoid limitations during scaling events.
+
+### **Security**
+ENIs retain their security group memberships even when moved between instances. Care must be taken to ensure that ENIs do not unintentionally grant access to new instances.
+Regularly review the security groups associated with your ENIs to adhere to the principle of least privilege.
+Cleanup and Audit
+Regularly audit and clean up unused ENIs to maintain a tidy environment and reduce security risks.
+Implement lifecycle policies to automate the detachment and deletion of ENIs not in use, especially when decommissioning instances.
+
+### **High Availability and Disaster Recovery**
+
+ENIs can be used in high availability setups. For example, by moving an ENI with its IP address between instances, you can quickly shift traffic to a standby instance in case of failure.
+Implement route table and network ACL (Access Control List) configurations that complement the ENI setup for robust network architecture.

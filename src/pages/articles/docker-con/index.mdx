@@ -1,0 +1,55 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import dockerCon from './docker-con.jpeg'
+import dockerScout from './docker-scout.png'
+export const meta = {
+  author: 'Kenny Nguyen',
+date: '2023-10-04',
+  title: 'DockerCon Workshop',
+  description:
+    'DockerScout: Securing the Complete Software Supply Chain'
+}
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+## Embracing Docker Scout GA: My Takeaways from the Workshop
+
+ <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Image src={dockerCon} alt='dockerCon' />
+    </div>
+
+> **I recently had the opportunity to learn from Jason Dunne (Staff Manager- Docker) about how Docker Scout secures the software supply chain through real-time vulnearability identification, remediation recommendations, and continuous policy evaluation.**
+
+Docker has launched the General Availability (GA) of Docker Scout, a game-changing tool for developers that offers continuous evaluation of container images. This tool aligns with the best practices of software supply chains and comes packed with integrations that provide visibility from development to production, reinforcing Docker Scout's essential role in software supply chain security.
+
+## Real-Time Insights for Cloud-Native Development
+
+Docker Scout integrates seamlessly into the Docker tools that developers use every day, providing a comprehensive library of open-source trusted content, policy evaluation, and automated remediation. It offers real-time insights from the initial base image to the final production deployment, utilizing Docker's vast ecosystem and container runtime to deliver actionable information.
+
+## The System of Record for Software Supply Chain
+
+Developers can now access immediate insights, detect anomalies, and receive automated recommendations to enhance application integrity through Docker Scout. This is made possible by its integration with Docker Desktop, Docker CLI, Docker Hub, and the full suite of Docker products, allowing developers to see and address the complexities within the software supply chain.
+
+## Trusted Content and Policy Evaluation
+
+Docker's commitment to secure content is evident in Docker Hub, which hosts Docker Official Images and other trusted content. Docker Scout uses this metadata to monitor image lifecycles, providing unique insights and automating the enhancement of software supply chain objectives.
+
+## Beyond Production Monitoring
+
+Unlike platforms that only focus on production container images, Docker Scout recognizes the need to oversee the entire software supply chain, offering insights and workflows for developers to build secure Docker container images. It integrates with various tools like JFrog Artifactory, Amazon ECR, and GitHub Actions, ensuring comprehensive monitoring.
+
+<Image src={dockerScout} alt='' />
+
+## A New Approach to Policy Evaluation
+
+Docker Scout goes beyond the traditional binary policy outcomes, providing nuanced analysis and suggesting remediation paths. This proactive approach helps reduce Mean Time to Repair (MTTR) and avoids last-minute CI/CD security issues that can delay releases.
+
+## Vision for Developer-Friendly Policy
+
+Docker Scout's vision is to allow developers to define secure and efficient policies tailored to their specific needs. The new capabilities include out-of-the-box policies for maintaining up-to-date base images, tracking vulnerabilities, and monitoring licenses, with an aggregated view of policy results for better focus and understanding.
+
+## Looking Ahead
+
+As Docker Scout enters its next phase, the Docker team is committed to enhancing developer workflows and welcomes feedback through the Docker Scout Design Partner Program. The upcoming Docker Scout Team plan will offer extensive features for the Docker-Sponsored Open Source (DSOS) Program, including unlimited local image analysis and extensive repo analysis capabilities.
+
+For more details on Docker Scout and how it can transform your software supply chain security, visit the Docker Scout product page.

@@ -32,7 +32,7 @@ export default function Banner() {
           </p>
           <p className="text-sm text-gray-500">
             <a href="#" className="hover:underline">
-             SPEAKER
+             Speaker
              <br/>
              Google Campus
             </a>

@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { useRef, useEffect } from 'react'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -17,7 +18,7 @@ import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoGrpseek from '@/images/grpseek.png'
 import logoStarbucks from '@/images/logos/starbucks.svg'
-import image1 from '@/images/photos/image-1.png'
+import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.png'
 import image3 from '@/images/photos/image-3.png'
 import image4 from '@/images/photos/image-4.png'
@@ -110,7 +111,22 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function Newsletter() {
+  const credlyRef = useRef(null);
+  useEffect(() => {
+    if (credlyRef.current) {
+      // Create the script element
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = "//cdn.credly.com/assets/utilities/embed.js";
+
+      // Append script element to the container
+      credlyRef.current.appendChild(script);
+    }
+  }, []);
   return (
+    <div>
+          
     <form
       action="/thank-you"
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
@@ -133,8 +149,10 @@ function Newsletter() {
         <Button type="submit" className="ml-4 flex-none">
           Join
         </Button>
+    
       </div>
     </form>
+    </div>
   )
 }
 //ANCHOR - RESUME 
